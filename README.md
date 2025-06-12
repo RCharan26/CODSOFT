@@ -2,56 +2,56 @@
 
 # 💼 CODSOFT Internship - Task 3: Customer Churn Prediction
 
-## 📊 Problem Statement
+## 🧠 Problem Statement
 
-Develop a machine learning model to **predict customer churn** in a subscription-based business. Churn means a customer is likely to stop using the service. The goal is to classify whether a customer will churn or not based on historical behavior and demographic data.
+Predict whether a customer will **churn (leave)** or **stay** with the company using historical customer data. Churn prediction helps companies identify at-risk customers and take proactive retention steps.
 
 ---
 
 ## 📁 Dataset
 
-- **Source**: [Kaggle - Bank Customer Churn Prediction](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction)
-- **Features include**:
-  - Customer ID
-  - Age, Gender, Geography
-  - Credit Score, Balance
-  - Tenure, Estimated Salary
-  - Exited (target: 1 for churned, 0 for retained)
+- **Source**: [Kaggle - Bank Customer Churn Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction)
+- **File**: `Churn_Modelling.csv`
+- **Target column**: `Exited` (1 = churned, 0 = retained)
 
 ---
 
 ## ⚙️ Technologies Used
 
 - Python
-- Pandas, NumPy
-- Scikit-learn
-- Matplotlib, Seaborn
-- Jupyter Notebook
+- pandas, numpy
+- seaborn, matplotlib
+- scikit-learn
 
 ---
 
-## 🧠 ML Models Used
+## 🧪 ML Workflow Overview
 
-- Logistic Regression
-- Random Forest Classifier
-- Gradient Boosting Classifier
+1. **Data Preprocessing**:
+   - Dropped irrelevant columns: `RowNumber`, `CustomerId`, `Surname`
+   - Encoded categorical variables:
+     - `Gender` → Label Encoding
+     - `Geography` → One-hot encoding
+   - Feature scaling using `StandardScaler`
 
-We compare models based on:
-- Accuracy
-- Confusion Matrix
-- Precision / Recall / F1 Score
+2. **Model Building**:
+   - Split into train/test sets (80/20)
+   - Trained a **Random Forest Classifier** with 100 estimators
 
----
-
-## 📈 Results
-
-The best-performing model achieved:
-- ✅ Accuracy: *~XX%*
-- 📉 Low false positives (retained customers marked as churned)
-- 📊 Clean visualizations of churn vs non-churn customers
-
-*(Update this with your actual results)*
+3. **Evaluation**:
+   - Classification Report (Precision, Recall, F1-Score)
+   - Confusion Matrix Visualization
 
 ---
 
-## 🗃️ File Structure
+## 🧾 Results Snapshot
+
+```plaintext
+              precision    recall  f1-score   support
+
+           0       0.87      0.95      0.91      1607
+           1       0.72      0.50      0.59      393
+
+    accuracy                           0.85      2000
+   macro avg       0.80      0.72      0.75      2000
+weighted avg       0.84      0.85      0.84      2000
